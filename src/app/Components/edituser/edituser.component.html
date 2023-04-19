@@ -1,0 +1,88 @@
+<p>Uppdatera användare</p>
+<form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Förnamn</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="user_firstname"
+      [(ngModel)]="user_data.user_firstname"
+      value="{{ user_data.user_firstname }}"
+      required
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Efternamn</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="user_lastname"
+      [(ngModel)]="user_data.user_lastname"
+      value="{{ user_data.user_lastname }}"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="user_email"
+      [(ngModel)]="user_data.user_email"
+      value="{{ user_data.user_email }}"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Adress</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="user_user_address"
+      [(ngModel)]="user_data.user_address"
+      value="{{ user_data.user_address }}"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Stad</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="user_city"
+      [(ngModel)]="user_data.user_city"
+      value="{{ user_data.user_city }}"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Postnummer</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="user_zipcode"
+      [(ngModel)]="user_data.user_zipcode"
+      value="{{ user_data.user_zipcode }}"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Mobilnummer</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="user_mobilephone"
+      [(ngModel)]="user_data.user_mobilephone"
+      value="{{ user_data.user_mobilephone }}"
+      required
+    />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Uppdatera användare</a>
+  </button>
+  <button mat-raised-button color="warn">
+    <a class="link-text" type="submit" href="/adminview">Ångra</a>
+  </button>
+</form>

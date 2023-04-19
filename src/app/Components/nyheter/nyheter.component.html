@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--<div class="nyheter-container">
+  <div class="tl">
+    <h1>Vårens nyheter</h1>
+    <p class="ljusare">
+      Nu går vi mot ljusare tider, ta med dig solen i hemmet med vår senaste
+      kollektion.
+    </p>
+  </div>
+  <div class="tr">
+    <img src="./assets/img/placeholder-nyheter.png" />
+    <p>Produkt: 1000kr</p>
+  </div>
+  <div class="bl">
+    <img src="./assets/img/placeholder-nyheter.png" />
+    <p>Produkt: 1000kr</p>
+  </div>
+  <div class="br">
+    <img src="./assets/img/placeholder-nyheter.png" />
+    <p>Produkt: 1000kr</p>
+  </div>
+</div>-->
+
+<div class="nyheter-container">
+  <div class="header">
+    <h1>Vårens nyheter</h1>
+    <p class="ljusare">
+      Nu går vi mot ljusare tider, ta med dig solen i hemmet med vår senaste
+      kollektion.
+    </p>
+  </div>
+
+  <div *ngFor="let product of products.slice(0, 3)">
+    <a href="/product/{{ product.product_id }}">
+      <img src="{{ product.product_image }}" />
+    </a>
+    <div class="rowP">
+      <p>
+        {{ product.product_name }}
+      </p>
+      <p class="newPrice">{{ product.product_price }} kr</p>
+    </div>
+  </div>
+</div>

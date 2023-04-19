@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.price-field {
+  width: 210px;
+  height: 80px;
+}
+
+

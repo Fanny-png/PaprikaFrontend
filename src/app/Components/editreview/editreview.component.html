@@ -1,0 +1,53 @@
+<p>Ändra en recension</p>
+
+<form [formGroup]="editReviewForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label> Recension text</mat-label>
+    <input
+      matInput
+      formControlName="review_text"
+      [(ngModel)]="review_data.review_text"
+      value="{{ review_data.review_text }}"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Betyg</mat-label>
+    <textarea
+      matInput
+      formControlName="review_rating"
+      [(ngModel)]="review_data.review_rating"
+      value="{{ review_data.review_rating }}"
+      required
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Produkt Id</mat-label>
+    <input
+      matInput
+      formControlName="product_id"
+      [(ngModel)]="review_data.product_id"
+      value="{{ review_data.product_id }}"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Användar Id</mat-label>
+    <input
+      matInput
+      formControlName="user_id"
+      [(ngModel)]="review_data.user_id"
+      value="{{ review_data.user_id }}"
+      required
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Uppdatera recension</a>
+  </button>
+  <button mat-raised-button color="warn">
+    <a class="link-text" type="submit" href="/adminview"> Ångra</a>
+  </button>
+</form>

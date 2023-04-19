@@ -1,0 +1,12 @@
+<form [formGroup]="addProduct_categoryForm" (ngSubmit)="onSubmit()">
+  <h2>Skapa en ny produktkategori</h2>
+  <p>*obligatoriskt fält</p>
+  <mat-form-field appearance="fill">
+    <mat-label> Namn</mat-label>
+    <input matInput formControlName="category_name" required />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Skapa produktkategori</a>
+  </button>
+</form>

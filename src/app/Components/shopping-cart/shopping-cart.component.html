@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="colcontainer">
+    <div class="left">
+      <h1>Varukorg</h1>
+      <div class="kundinfo">
+        <button (click)="toggleKundinfo()" class="formBtn">
+          <h2>Kundinformation</h2>
+          <mat-icon>{{
+            showKundinfo ? "arrow_drop_up" : "arrow_drop_down"
+          }}</mat-icon>
+          {{ showKundinfo ? "Steg 1/3" : "Steg 1/3" }}
+        </button>
+        <div *ngIf="showKundinfo">
+          <div class="fenamn">
+            <mat-form-field appearance="outline" id="förnamn">
+              <mat-label>Förnamn</mat-label>
+              <input matInput />
+            </mat-form-field>
+            <mat-form-field appearance="outline" id="efternamn">
+              <mat-label>Efternamn</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" id="adress">
+            <mat-label>Adress</mat-label>
+            <input matInput />
+          </mat-form-field>
+          <mat-form-field appearance="outline" id="stad">
+            <mat-label>Stad</mat-label>
+            <input matInput />
+          </mat-form-field>
+          <div class="ptnummer">
+            <mat-form-field appearance="outline">
+              <mat-label>Postnummer</mat-label>
+              <input matInput />
+            </mat-form-field>
+            <mat-form-field appearance="outline" id="telefonnummer">
+              <mat-label>Telefonnummer</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!--End kundinfo-->
+      <div class="frakt">
+        <button (click)="toggleFrakt()" class="formBtn">
+          <h2>Välj Fraktsätt</h2>
+          <mat-icon>{{
+            showFrakt ? "arrow_drop_up" : "arrow_drop_down"
+          }}</mat-icon>
+          {{ showFrakt ? "Steg 2/3" : "Steg 2/3" }}
+        </button>
+        <div *ngIf="showFrakt">
+          <mat-radio-group aria-label="Select an option" class="radioGroup">
+            <mat-radio-button value="1">Hämta i butik</mat-radio-button>
+            <mat-radio-button value="2">Hemleverans</mat-radio-button>
+            <mat-radio-button value="3">Budbee</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <!--End frakt-->
+      <div class="betal">
+        <button (click)="toggleBetal()" class="formBtn">
+          <h2>Välj Betalsätt</h2>
+          <mat-icon>{{
+            showBetal ? "arrow_drop_up" : "arrow_drop_down"
+          }}</mat-icon>
+          {{ showBetal ? "Steg 3/3" : "Steg 3/3" }}
+        </button>
+        <div *ngIf="showBetal">
+          <div class="btop">
+            <mat-form-field appearance="outline" id="ccnummer">
+              <mat-label>0000 0000 0000 0000</mat-label>
+              <input matInput />
+            </mat-form-field>
+            <mat-form-field appearance="outline" id="mmyy">
+              <mat-label>MM/YY</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="bbot">
+            <mat-form-field appearance="outline" id="ccnamn">
+              <mat-label>Korthållarens namn</mat-label>
+              <input matInput />
+            </mat-form-field>
+            <mat-form-field appearance="outline" id="cvv">
+              <mat-label>CVV</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!--End betal-->
+    </div>
+    <div class="right">
+      <h1>Sammanfattning</h1>
+      <mat-list>
+        <mat-list-item *ngFor="let cart of cart_items">
+          <span *ngIf="cart.product_id">
+            <img
+              matListItemAvatar
+              src="{{ getProductById(cart.product_id)?.product_image }}"
+            />
+            <div class="products">
+              {{ getProductById(cart.product_id)?.product_name }},
+              {{ getProductById(cart.product_id)?.product_price }} kr
+
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="deleteCartItem(cart.cart_item_id)"
+              >
+                Ta bort
+              </button>
+            </div>
+          </span>
+        </mat-list-item>
+      </mat-list>
+
+      <div>
+        <span class="total">TOTAL</span>
+        <span class="totalPrice">{{ getTotalPrice(cart_items) }}kr</span>
+      </div>
+      <button mat-raised-button color="warn" (click)="resetCartItems()">
+        Nollställ shoppingsession
+      </button>
+      <button mat-raised-button color="primary" (click)="resetCartItems()">
+        Beställ
+      </button>
+    </div>
+  </div>
+</div>
+
+<a class="link" href="/shopping-cart/payment">Payment</a>

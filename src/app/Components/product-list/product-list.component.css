@@ -1,0 +1,28 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.h-100{
+    border: solid lightgray;
+}
+
+
+.oldPrice{
+    text-decoration: line-through;
+}
+
+.newPrice{
+    color: red;
+    text-decoration: none;
+}
+
+.btn{
+    background-color: #f08a5d;;
+}
+
+.rh-100{
+    display: block;
+    
+}
+
+.single-card {
+    width: 38em !important;
+}

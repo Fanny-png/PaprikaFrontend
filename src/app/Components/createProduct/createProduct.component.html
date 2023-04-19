@@ -1,0 +1,61 @@
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <h2>Skapa en ny produkt</h2>
+  <p>*obligatoriskt fält</p>
+  <mat-form-field appearance="fill">
+    <mat-label> Namn</mat-label>
+    <input matInput formControlName="product_name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Beskrivning</mat-label>
+    <textarea matInput formControlName="product_desc" required></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="price-field">
+    <mat-label>Pris SEK</mat-label>
+    <input
+      matInput
+      type="number"
+      formControlName="product_price"
+      required
+      class="example-right-align"
+      placeholder="0"
+    />
+    <!--<span matTextSuffix>.00</span>-->
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Bildlänk</mat-label>
+    <input matInput formControlName="product_image" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Kategori</mat-label>
+    <mat-select formControlName="product_category_id">
+      <mat-option
+        *ngFor="let product_category of products_categorys"
+        [value]="product_category.product_category_id"
+        formControlName="product_category_id"
+      >
+        {{ product_category.category_name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Erbjudande</mat-label>
+    <mat-select formControlName="discount_id">
+      <mat-option
+        *ngFor="let discount of discounts"
+        [value]="discount.discount_id"
+        formControlName="discount_id"
+      >
+        {{ discount.discount_name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Skapa produkt</a>
+  </button>
+</form>

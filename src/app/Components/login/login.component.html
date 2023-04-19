@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<mat-card *ngIf="isLoggedIn() == false" class="example-card">
+  <mat-card-header>
+    <mat-card-title>Logga in som admin</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="5">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Användarnamn"
+                name="username"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Lösenord"
+                type="password"
+                name="password"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <!--<button mat-raised-button (click)="login()" color="primary">
+      Logga in som admin
+    </button>-->
+    <button mat-raised-button color="primary">
+      <a class="white-text" href="/adminview">Logga in som admin</a>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="isLoggedIn() == false" class="example-card">
+  <mat-card-header>
+    <mat-card-title>Logga in med Google</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" color="primary">
+      Logga in
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="isLoggedIn() == true" class="example-card">
+  <mat-card-header>
+    <mat-card-title>Logga ut med Google</mat-card-title>
+    <mat-card-title>inloggad som</mat-card-title>
+    <mat-card-title>
+      <div>{{ userInfo.info.name }}</div>
+    </mat-card-title>
+    <mat-card-title>
+      <div><img src="{{ userInfo.info.picture }}" /></div
+    ></mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-raised-button (click)="logout()" color="primary">
+      Logga ut
+    </button>
+  </mat-card-actions>
+</mat-card>

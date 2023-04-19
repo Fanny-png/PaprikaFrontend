@@ -1,0 +1,26 @@
+<form [formGroup]="addDiscountForm" (ngSubmit)="onSubmit()">
+  <h2>Skapa en ny deal</h2>
+  <p>*obligatoriskt fält</p>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Namn erbjudande</mat-label>
+    <input matInput formControlName="discount_name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="procent-field">
+    <mat-label>Procent</mat-label>
+    <input
+      matInput
+      type="number"
+      formControlName="discount_percent"
+      required
+      class="example-right-align"
+      placeholder="0"
+    />
+    <span matTextSuffix> %</span>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Skapa erbjudande</a>
+  </button>
+</form>

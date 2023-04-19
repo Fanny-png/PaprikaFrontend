@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<div class="pcontainer">
+  <div id="pleft">
+    <p class="reviewcount">{{ totalReviews }} Reviews</p>
+    <div class="stars">
+      <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+        <span
+          class="fa fa-star"
+          [ngClass]="{ checked: i <= (averageRating || 0) }"
+        ></span>
+      </ng-container>
+    </div>
+    <div *ngFor="let discount of discounts">
+      <div *ngIf="discount.discount_id == product_data.discount_id">
+        <h1 class="pname">{{ product_data.product_name }}</h1>
+        <h1 class="ppriceRed">
+          <h1 class="ppricestripe">{{ product_data.product_price }} kr</h1>
+
+          {{ newprice(product_data.product_price, discount.discount_percent) }}
+          kr
+        </h1>
+      </div>
+    </div>
+    <div *ngIf="!product_data.discount_id">
+      <h1 class="pname">{{ product_data.product_name }}</h1>
+      <h1 class="pprice">{{ product_data.product_price }} kr</h1>
+    </div>
+
+    <div class="horizontal"></div>
+    <p class="pdesc">{{ product_data.product_desc }}</p>
+    <button (click)="addProduct()" mat-raised-button id="kundvagnBtn">
+      Lägg till i kundvagn
+    </button>
+    <mat-tab-group class="tabs" animationDuration="0ms">
+      <mat-tab label="Produktbeskrivning" class="tablbl">
+        <p class="tabdesc">{{ product_data.product_desc }}</p>
+      </mat-tab>
+      <mat-tab label="Specifikationer" class="tablbl">
+        <p>Specifikationer</p>
+      </mat-tab>
+      <mat-tab label="Dokument" class="tablbl">
+        <p>Dokument</p>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div id="pright">
+    <img src="{{ product_data.product_image }}" alt="" />
+    <app-review></app-review>
+  </div>
+</div>

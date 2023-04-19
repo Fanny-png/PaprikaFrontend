@@ -1,0 +1,20 @@
+<p>Ändra en produktkategori</p>
+
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label> Namn </mat-label>
+    <input
+      matInput
+      formControlName="category_name"
+      [(ngModel)]="product_category_data.category_name"
+      value="{{ product_category_data.category_name }}"
+      required
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Uppdatera produktkategori</a>
+  </button>
+  <button mat-raised-button color="warn">
+    <a class="link-text" type="submit" href="/adminview"> Ångra</a>
+  </button>
+</form>

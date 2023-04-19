@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<div class="nav">
+  <div>
+    <a href=""
+      ><img class="logo_nav" src="assets/img/paprika-removebg-alt3.png"
+    /></a>
+  </div>
+  <div class="navbar">
+    <div><a class="link" href=""> Startsida </a></div>
+    <!-- <div><a class="link" href="/adminview"> Adminview </a></div> 
+    <div class="dropdown">
+      <button class="dropbtn">
+        Kategorier
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div
+        class="dropdown-content"
+        *ngFor="let product_category of product_categories"
+      >
+        <a class="dropdown-link" href="#">{{
+          product_category.category_name
+        }}</a>
+      </div>
+    </div>-->
+    <div><a class="link" href="/productList"> Produkter / Produktsök </a></div>
+  </div>
+  <!--<div>
+    <input
+      type="text"
+      placeholder="Sök"
+      [(ngModel)]="searchTerm"
+      (change)="search()"
+    />
+    <button class="search_btn" (click)="search()">Sök</button>
+  </div>-->
+  <div *ngIf="isLoggedIn() == false">
+    <button class="login_btn" routerLink="/login">Logga in</button>
+  </div>
+  <div *ngIf="isLoggedIn() == true">
+    <button class="login_btn" routerLink="/login">Logga ut</button>
+  </div>
+  <div>
+    <button
+      class="kundvagn_btn"
+      routerLink="/shopping-cart"
+      matBadge="{{ totalProducts }}"
+      matBadgeColor="warn"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi bi-cart-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </svg>
+      Kundvagn
+    </button>
+  </div>
+  <div class="mMenu">
+    <button mat-stroked-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="">Startsida</button>
+      <!--<button mat-menu-item routerLink="/product-category">Kategorier</button> -->
+      <button mat-menu-item routerLink="/productList">
+        Produkter / Produktsök
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

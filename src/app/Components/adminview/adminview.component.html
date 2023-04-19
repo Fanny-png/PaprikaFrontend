@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<div class="crud-container">
+  <h1>Hantera komponenter på hemsidan</h1>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Hantera produkter</mat-panel-title>
+        <mat-panel-description>
+          Lägg till, ändra eller ta bort
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button mat-raised-button color="primary">
+        <a class="link-text" href="/create">Lägg till produkt</a>
+      </button>
+      <mat-list>
+        <mat-list-item *ngFor="let product of products">
+          <span matListItemTitle
+            >Namn på produkt: {{ product.product_name }}, pris:
+            {{ product.product_price }} kr
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="delete(product.product_id)"
+            >
+              Ta bort
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="(product.product_id)"
+            >
+              <a class="link-text" href="/edit/{{ product.product_id }}"
+                >Ändra</a
+              >
+            </button>
+          </span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Hantera produktkategorier</mat-panel-title>
+        <mat-panel-description>
+          Lägg till, ändra eller ta bort
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button mat-raised-button color="primary">
+        <a class="link-text" href="createproduct_category"
+          >Lägg till produktkategori</a
+        >
+      </button>
+      <mat-list>
+        <mat-list-item *ngFor="let product_category of product_categorys">
+          <span matListItemTitle
+            >Namn på produktkategori {{ product_category.category_name }}
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="
+                product_categoryDelete(product_category.product_category_id)
+              "
+            >
+              Ta bort
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="(product_category.product_category_id)"
+            >
+              <a
+                class="link-text"
+                href="/editproduct_category/{{
+                  product_category.product_category_id
+                }}"
+                >Ändra</a
+              >
+            </button>
+          </span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Hantera deals</mat-panel-title>
+        <mat-panel-description>
+          Lägg till, ändra eller ta bort
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button mat-raised-button color="primary">
+        <a class="link-text" href="/createdeal">Lägg till deal</a>
+      </button>
+      <mat-list>
+        <mat-list-item *ngFor="let discount of discounts">
+          <span matListItemTitle
+            >Namn på deal: {{ discount.discount_name }}, Procent:
+            {{ discount.discount_percent }}%
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="discountDelete(discount.discount_id)"
+            >
+              Ta bort
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="(discount.discount_id)"
+            >
+              <a class="link-text" href="/editdeals/{{ discount.discount_id }}"
+                >Ändra</a
+              >
+            </button>
+          </span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Hantera användare</mat-panel-title>
+        <mat-panel-description> Ändra eller ta bort </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item *ngFor="let user of users">
+          <span matListItemTitle
+            >Namn på användare: {{ user.user_firstname }}
+            {{ user.user_lastname }}
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="userDelete(user.user_id)"
+            >
+              Ta bort
+            </button>
+            <button mat-raised-button color="primary" (click)="(user.user_id)">
+              <a class="link-text" href="/edituser/{{ user.user_id }}">Ändra</a>
+            </button>
+          </span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Hantera recensioner</mat-panel-title>
+        <mat-panel-description> Ändra eller ta bort </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item *ngFor="let review of reviews">
+          <span matListItemTitle
+            ><span *ngFor="let user of users">
+              <span *ngIf="user.user_id == review.user_id">
+                Recension: {{ review.review_text }} - skriven av:
+                {{ user.user_firstname }}
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="reviewDelete(review.review_id)"
+                >
+                  Ta bort
+                </button>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="(review.review_id)"
+                >
+                  <a class="link-text" href="/editreview/{{ review.review_id }}"
+                    >Ändra</a
+                  >
+                </button>
+              </span>
+            </span>
+          </span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

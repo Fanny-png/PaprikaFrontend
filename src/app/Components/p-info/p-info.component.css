@@ -1,0 +1,35 @@
+.p-container {
+	width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.horizontal {
+	margin-top: 1px;
+	min-width: 55%;
+	height: 1px;
+	background-color: #7a7a7a80;
+    text-align: center;
+}
+
+.p-info {
+	height: 10px;
+	color: #606060;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+	font-weight: 200;
+	font-size: 30px;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.p-lorem {
+	max-width: 596px;
+	color: #606060;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.6;
+	text-align: center;
+}

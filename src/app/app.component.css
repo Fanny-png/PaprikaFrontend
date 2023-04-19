@@ -1,0 +1,21 @@
+/*Tillhör eg navbar css för dropdown meny i navbar komponent*/
+
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    flex: 1;
+  }
+  
+  /* Footer styles */
+  
+  app-footer {
+    background-color: #d4d4d433;
+    width: 100%;
+    height: auto; /* Change height to auto to allow the footer to expand based on content */
+    position: relative; /* Set position to relative to keep footer in the content flow */
+  }

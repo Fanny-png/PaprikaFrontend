@@ -1,0 +1,10 @@
+.link-text{
+    color: white;
+    text-decoration: none;
+}
+
+.crud-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

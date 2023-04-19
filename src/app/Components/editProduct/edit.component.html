@@ -1,0 +1,86 @@
+<p>Ändra en produkt</p>
+
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label> Namn </mat-label>
+    <input
+      matInput
+      formControlName="product_name"
+      [(ngModel)]="product_data.product_name"
+      value="{{ product_data.product_name }}"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Beskrivning</mat-label>
+    <textarea
+      matInput
+      formControlName="product_desc"
+      [(ngModel)]="product_data.product_desc"
+      value="{{ product_data.product_desc }}"
+      required
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Pris</mat-label>
+    <input
+      matInput
+      formControlName="product_price"
+      [(ngModel)]="product_data.product_price"
+      value="{{ product_data.product_price }}"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Bildlänk</mat-label>
+    <input
+      matInput
+      formControlName="product_image"
+      [(ngModel)]="product_data.product_image"
+      value="{{ product_data.product_image }}"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Kategori</mat-label>
+    <mat-select
+      formControlName="product_category_id"
+      [(ngModel)]="product_data.product_category_id"
+    >
+      <mat-option
+        *ngFor="let product_category of products_categorys"
+        [value]="product_category.product_category_id"
+      >
+        {{ product_category.category_name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Erbjudande</mat-label>
+    <mat-select
+      formControlName="discount_id"
+      [(ngModel)]="product_data.discount_id"
+      [value]="product_data.discount_id"
+    >
+      <mat-option
+        *ngFor="let discount of discounts"
+        [value]="discount.discount_id"
+      >
+        {{ discount.discount_name }}
+      </mat-option>
+      <mat-option></mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Uppdatera produkt</a>
+  </button>
+  <button mat-raised-button color="warn">
+    <a class="link-text" type="submit" href="/adminview"> Ångra</a>
+  </button>
+</form>

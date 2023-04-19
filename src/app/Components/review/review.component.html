@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<div class="review-container">
+  <div class="review-title">
+    <h2>Recensioner</h2>
+  </div>
+
+  <div class="review-info-container">
+    <div class="review-info">
+      <div *ngFor="let review of reviews" class="tr">
+        <div *ngFor="let user of users">
+          <div *ngIf="user.user_id == review.user_id">
+            <div *ngIf="review.product_id == product_data?.product_id">
+              <div class="review-name">
+                <p>{{ user.user_firstname }} {{ user.user_lastname }}</p>
+                <span *ngFor="let star of getStarArray(review.review_rating)">
+                  <mat-icon class="stars">star</mat-icon>
+                </span>
+              </div>
+
+              <div class="review-text">
+                <p>{{ review.review_text }}</p>
+                <div class="horizontal"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Testar-->
+      <ng-container *ngIf="isLoggedIn()">
+        <p>Skriv en recension</p>
+        <form [formGroup]="addReviewForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <mat-label> Recension</mat-label>
+            <input matInput formControlName="review_text" required />
+          </mat-form-field>
+          <!--<mat-form-field appearance="fill">
+            <mat-label> Betyg</mat-label>
+            <input matInput formControlName="review_rating" />
+          </mat-form-field>-->
+
+          <mat-form-field appearance="fill">
+            <mat-label>Betyg</mat-label>
+            <mat-select formControlName="review_rating">
+              <mat-option
+                *ngFor="let number of [1, 2, 3, 4, 5]"
+                [value]="number"
+                formControlName="product_category_id"
+              >
+                {{ number }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary">
+            <a class="link-text" type="submit">Skapa recension</a>
+          </button>
+        </form>
+      </ng-container>
+      <ng-container *ngIf="!isLoggedIn()">
+        <p>Logga in för att skriva en recension</p>
+      </ng-container>
+      <!--Testar-->
+    </div>
+  </div>
+</div>
+<p hidden>{{ getuserId() }}</p>

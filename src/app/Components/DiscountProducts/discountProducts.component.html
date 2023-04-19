@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<div class="nyheter-container">
+  <div class="header">
+    <h1>Deals</h1>
+    <p class="ljusare">Ta del av dessa grymma deals</p>
+  </div>
+  <ng-container *ngFor="let product of products.slice(0, 5)">
+    <ng-container *ngFor="let discount of discounts.slice(0, 3)">
+      <div *ngIf="discount.discount_id == product.discount_id">
+        <a href="/product/{{ product.product_id }}">
+          <img src="{{ product.product_image }}" />
+        </a>
+        <div class="rowP">
+          <p>
+            {{ product.product_name }}
+          </p>
+          <p class="newPrice">
+            {{ newprice(product.product_price, discount.discount_percent) }} kr
+          </p>
+          <p class="oldPrice">{{ product.product_price }} kr</p>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+<div class="horizontal"></div>

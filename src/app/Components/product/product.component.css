@@ -1,0 +1,151 @@
+.pcontainer {
+    width: 80%;
+    margin: auto;
+}
+
+.reviewcount {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1;
+	text-align: left;
+}
+
+.star-rating {
+    margin-top: -0.5em;
+}
+
+.pname, .pprice {
+	color: #606060;
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 1;
+	letter-spacing: 2px;
+	text-align: left;
+    display: inline-block;
+}
+
+.ppricestripe{
+	color: #606060;
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 44px;
+	line-height: 1;
+	letter-spacing: 2px;
+	text-align: left;
+    display: inline-block;
+	text-decoration: line-through;
+
+}
+
+.ppriceRed{
+	color: red;
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 44px;
+	line-height: 1;
+	letter-spacing: 2px;
+	text-align: left;
+    display: inline-block;
+	    width: 40%;
+    margin-right: 1em;
+	font-weight: 300;
+	font-size: 44px;
+	line-height: 1;
+    text-align: right;
+}
+
+.pname {
+    width: 50%;
+}
+
+.pprice {
+    width: 40%;
+    margin-right: 1em;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 1;
+    text-align: right;
+}
+
+.horizontal {
+	width: 90%;
+    margin-top: -0.5em;
+    margin-right: 2em;
+	height: 2px;
+	background-color: #c0c0c0;
+	float: left;
+}
+
+.pdesc {
+    width: 90%;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.6;
+	text-align: left;
+}
+
+#kundvagnBtn {
+    width: 90%;
+    padding: 0px 10px 0px 10px;
+	background: #7a7a7a;
+	color: #ffffff;
+	font-weight: 300;
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+.tabs {
+    width: 90%;
+	font-size: 14px;
+}
+
+#pleft {
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    width: 50%;
+    float: left;
+}
+
+#pright {
+	width: 50%;
+    float: left;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.checked {
+	color: orange;
+  }
+
+
+  @media screen and (max-width: 600px) {
+	.pcontainer {
+	width: 70%;
+	}
+	
+	.pname, .pprice, .ppriceRed {
+	display: block;
+	text-align: left;
+	margin-right: 0;
+	font-size: 30px;
+	}
+	
+	.pdesc, .tabdesc {
+	font-size: 14px;
+	margin-top: 5%;
+	}
+	
+	
+	#pleft, #pright {
+	width: 100%;
+	}
+	#kundvagnBtn, .horizontal{
+		width: 100%;
+	}
+
+	}

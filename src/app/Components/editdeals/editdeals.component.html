@@ -1,0 +1,30 @@
+<form [formGroup]="editDiscountForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label> Namn </mat-label>
+    <input
+      matInput
+      formControlName="discount_name"
+      [(ngModel)]="discount_data.discount_name"
+      value="{{ discount_data.discount_name }}"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Procent</mat-label>
+    <input
+      matInput
+      formControlName="discount_percent"
+      [(ngModel)]="discount_data.discount_percent"
+      value="{{ discount_data.discount_percent }}"
+      required
+    />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">
+    <a class="link-text" type="submit">Uppdatera erbjudande</a>
+  </button>
+  <button mat-raised-button color="warn">
+    <a class="link-text" type="submit" href="/adminview"> Ångra</a>
+  </button>
+</form>

@@ -1,0 +1,198 @@
+.nav {
+  align-items: center;
+}
+
+.mMenu {
+  display: none;
+}
+
+@media (max-width: 70em) {
+  .mMenu {
+    display: block;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .div {
+    padding: none;
+    margin: none;
+  }
+
+  .search_btn, .kundvagn_btn, .login_btn{
+    height: 3rem !important;
+  }
+
+  div input {
+    width: 100% !important;
+    height: 0.35rem !important;
+    font-size: 12px !important;
+  
+  }
+  .search_btn {
+    width: 30% !important;
+    font-size: 12px !important;
+  }
+
+  .login_btn {
+    width: 6em !important;
+    font-size: 12px !important;
+  }
+
+  .kundvagn_btn {
+    width: 6em !important;
+    font-size: 12px !important;
+  }
+
+/*
+  div input {
+    width: 12rem !important;
+  }
+
+  .login_btn {
+    width: 6em !important;
+    font-size: 12px !important;
+  }
+
+  .kundvagn_btn {
+    width: 6em !important;
+    font-size: 12px !important;
+  }
+*/
+
+}
+
+
+
+div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 3rem;
+  margin: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", sans-serif;
+  font-size: 18px;
+}
+
+.navbar .link a:hover {
+  text-decoration: underline;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  padding-top: 30px;
+  text-decoration: none;
+}
+
+.logo_nav {
+  max-width: 65%;
+  min-width: 30%;
+  height: 95%;
+  border-radius: 1rem;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  padding-top: 15px;
+  border: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", sans-serif;
+}
+
+.dropdown-link a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #f08a5d;
+}
+
+.dropdown-content {
+  margin-top: 3rem;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  font-family: "Lucida Sans", "Lucida Sans Regular", sans-serif;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+div input {
+  border-radius: 0.3rem 0 0 0.3rem;
+  border: 2px solid #f08a5d;
+  height: 0.65rem;
+  width: 20rem;
+  background-color: #f1f1f1;
+  padding: 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+div input:focus {
+  outline: none;
+}
+
+.login_btn,
+.kundvagn_btn {
+  height: 3.2rem;
+}
+
+.search_btn,
+.login_btn,
+.kundvagn_btn {
+  color: white;
+  width: 5rem;
+  font-size: 1rem;
+  border-radius: 0 0.3rem 0.3rem 0;
+  border: 2px solid #f08a5d;
+  background-color: #f08a5d;
+  opacity: 1;
+}
+
+.search_btn {
+  padding: 0.9rem;
+}
+
+div button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.login_btn {
+  border-radius: 0.3rem;
+  width: 8rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", sans-serif;
+}
+
+.kundvagn_btn {
+  border-radius: 0.5rem;
+  width: 10rem;
+  background-color: dimgrey;
+  border-color: dimgray;
+  font-family: "Lucida Sans", "Lucida Sans Regular", sans-serif;
+}
